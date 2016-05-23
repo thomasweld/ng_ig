@@ -10,6 +10,9 @@ function UploadController ($http, SERVER, $state) {
   // Here are all of the functions referenced above
 
   function uploadPost (post) {
+
+    post.likes = 0;
+
     // Use $http to make a post request to our server
     $http.post(SERVER.URL + 'post', post, { headers: SERVER.HEADERS }).then( (res) => {
       $state.go('root.home');

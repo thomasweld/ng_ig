@@ -26,7 +26,7 @@ function config ($stateProvider, $urlRouterProvider) {
     })
     // show a detail page of the image ( hard mode: edit / delete image options )
     .state('root.detail', {
-      url: '/:id',
+      url: '/post/:id',
       templateUrl: 'templates/detailTemplate.html',
       controller: 'DetailController as vm'
     })
