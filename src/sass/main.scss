@@ -3,14 +3,12 @@
     overflow: auto;
 
   .card {
-
-    max-width: 320px;
-    min-height: 320px;
     float: left;
     margin: 1em;
 
-    .postImage {
-      max-width: 300px;
+    .imageDiv {
+      width: 320px;
+      height: 320px;
     }
   }
 }

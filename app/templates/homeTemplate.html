@@ -1,12 +1,20 @@
 
 <h2>My Posts</h2>
 
-<div class="card" ng-repeat="post in vm.postList">
+<div class="card" ng-repeat="post in vm.postList" ng-model="post.likes" ng-dblclick="post.likes = post.likes + 1" ng-init="post.likes=0">
+  <a href="/#/post/{{ post.id }}">
+    <div class="imageDiv" style="background-image:url('{{ post.image }}'); background-size: cover;">
 
-  <img class="postImage" src="{{ post.image }}" alt="" />
+    </div>
+  </a>
+    <!-- <img class="postImage" src="{{ post.image }}" alt="" /> -->
 
   <p>
-    {{ post.description }}
+    Hashtags Go Here: {{ post.description }}
+  </p>
+
+  <p>
+    Likes: {{ post.likes }}
   </p>
 
 
