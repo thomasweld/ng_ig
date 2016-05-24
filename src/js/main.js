@@ -3,9 +3,9 @@ import angular from 'angular'
 import 'angular-ui-router';
 
 // Import Controllers
-import { DetailController }      from './controllers/detailController';
-import { HomeController } from './controllers/homeController';
-import { UploadController }    from './controllers/uploadController';
+import { DetailController } from './controllers/detailController';
+import { HomeController }   from './controllers/homeController';
+import { UploadController } from './controllers/uploadController';
 
 // Import config file
 import { config } from './config';
