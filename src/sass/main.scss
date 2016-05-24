@@ -5,10 +5,18 @@
   .card {
     float: left;
     margin: 1em;
+    position: relative;
 
     .imageDiv {
       width: 320px;
       height: 320px;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 140px;
+      top: 24%;
+      left: 26%;
     }
   }
 }

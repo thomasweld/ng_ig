@@ -3,8 +3,8 @@ function HomeController ($http, SERVER, $timeout) {
   let vm = this;
 
   // List of methods on our instance
-  vm.like = like;
-
+  vm.liked = liked;
+  vm.likedPostId = '';
   vm.isShown = false;
 
   // Calls our Init Function
@@ -20,25 +20,23 @@ function HomeController ($http, SERVER, $timeout) {
    });
   }
 
-  function like( post ) {
-
+  function liked( post ) {
+    flashHeart( post );
     post.likes = ++post.likes;
-
     $http.put(SERVER.URL + 'post/' + post.id, post, { headers: SERVER.HEADERS }).then( (res) => {
       console.log(res.status);
-      if ( res.status === 200 ) {
-        vm.isShown = true;
-      }
-
-      $timeout(function () {
-        vm.isShown = false;
-        console.log(vm.isShown);
-      }, 1000);
-
     });
-
   }
 
+  function flashHeart ( post ) {
+    console.log('vm.likedPostId' + vm.likedPostId);
+    vm.likedPostId  = post.id;
+
+    $timeout( () => {
+      console.log('timeout function');
+      vm.likedPostId = '';
+    }, 1000);
+  }
 }
 
 HomeController.$inject = ['$http', 'SERVER', '$timeout'];

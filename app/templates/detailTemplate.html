@@ -3,19 +3,19 @@
 
 <div class="card">
 
-    <div class="imageDiv" style="background-image:url('{{ post.image }}'); background-size: cover;">
-
-    </div>
-
-    <!-- <img class="postImage" src="{{ post.image }}" alt="" /> -->
+  <div class="imageDiv" style="background-image:url('{{ vm.post.image }}');
+  background-size: cover;
+  background-position: center;">
+  </div>
 
   <p>
-    Hashtags Go Here: {{ post.description }}
+    Hashtags Go Here: {{ vm.post.description }}
   </p>
 
   <p>
-    Likes: {{ post.likes }}
+    Likes: {{ vm.post.likes }}
   </p>
 
+  <button ng-click="vm.deletePost(vm.post.id)">DELETE</button>
 
 </div>

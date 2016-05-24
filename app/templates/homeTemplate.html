@@ -1,20 +1,23 @@
 
 <h2>My Posts</h2>
 
-<div class="card" ng-repeat="post in vm.postList" ng-model="post.likes" ng-dblclick="vm.like(post)">
+<div class="card" ng-repeat="post in vm.postList" ng-model="post.likes" ng-dblclick="vm.liked(post)">
 
-    <div class="imageDiv" style="background-image:url('{{ post.image }}'); background-size: cover;">
-
+    <div class="imageDiv"
+         class="ng-style: expression;"
+         style="background-image:url('{{ post.image }}');
+         background-size: cover;
+         background-position: center;">
     </div>
-    <!-- <img class="postImage" src="{{ post.image }}" alt="" /> -->
 
   <p>
     Hashtags Go Here: {{ post.description }}
   </p>
 
+  <button>Likes: {{ post.likes }} </button>
+
   <p>
-    Likes: {{ post.likes }}
-    <span ng-show="vm.isShown" class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+    <span ng-if="vm.likedPostId === post.id" class="heart glyphicon glyphicon-heart" aria-hidden="true"></span>
   </p>
 
   <a href="/#/post/{{ post.id }}">

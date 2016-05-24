@@ -1,27 +1,33 @@
 
-function DetailController ($scope, $http, URL, $stateParams, $state) {
+function DetailController ($http, SERVER, $stateParams, $state) {
 
+  console.log(SERVER.URL);
   // Since we are using ControllerAs syntax and they are being
   // instantiated we need to use the `this` keyword.
   // However to keep things lined up, we assign that to `vm`
   let vm = this;
+  console.dir(vm);
+  // let id = vm.post.id;
+  // console.log(id);
 
   vm.init = init;
   vm.deletePost = deletePost;
 
-  function init () {
-    $http.get(URL + $stateParams.id).then( (res) => {
-      $scope.singlePeep = res.data;
-    });
+  init();
+
+  function init() {
+   $http.get(SERVER.URL + 'post/' + $stateParams.id, { headers: SERVER.HEADERS }).then( (res) => {
+     vm.post = res.data;
+   });
   }
 
-  deletePost = function (id) {
-    $http.delete(URL + id).then( (res) => {
+  function deletePost ( id ) {
+    $http.delete(SERVER.URL + 'post/' + $stateParams.id, { headers: SERVER.HEADERS }).then( (res) => {
       $state.go('home');
     });
   }
 
 }
 
-DetailController.$inject = ['$scope', '$http', 'URL', '$stateParams', '$state'];
+DetailController.$inject = ['$http', 'SERVER', '$stateParams', '$state'];
 export { DetailController };
