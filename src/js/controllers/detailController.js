@@ -23,6 +23,7 @@ function DetailController ($http, SERVER, $stateParams, $state) {
 
   function deletePost ( id ) {
     $http.delete(SERVER.URL + 'post/' + $stateParams.id, { headers: SERVER.HEADERS }).then( (res) => {
+      window.alert("Image Deleted!");
       $state.go('root.home');
     });
   }
