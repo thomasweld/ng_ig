@@ -1,22 +1,35 @@
 
-.ng-scope {
-    overflow: auto;
+body {
 
-  .card {
-    float: left;
-    margin: 1em;
-    position: relative;
+  .container {
 
-    .imageDiv {
-      width: 320px;
-      height: 320px;
+    margin-top: 2em;
+
+    nav {
+      font-size: 18px;
     }
 
-    .heart {
-      position: absolute;
-      font-size: 140px;
-      top: 24%;
-      left: 26%;
+    .ng-scope {
+      overflow: auto;
+
+      .card {
+        float: left;
+        margin-right: 4em;
+        position: relative;
+
+        .imageDiv {
+          width: 320px;
+          height: 320px;
+          margin-bottom: 1em;
+        }
+
+        .heart {
+          position: absolute;
+          font-size: 140px;
+          top: 24%;
+          left: 26%;
+        }
+      }
     }
   }
 }
